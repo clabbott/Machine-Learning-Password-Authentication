@@ -17,9 +17,17 @@ public class PassAuthDriver  {
 
         //Calls passAuthNN with parameters String username, (Arrsy) Passvalues
 
+        //Fix this. Add second parameter with array of 9 string values
+        UserInput.writeDataLineByLine("C:\\Users\\Clark Abbott\\dl4j-examples\\dl4j-examples\\src\\main\\resources" +
+            "\\classification\\clarkData.csv");
+
+        //Assign the user above a label according to their username.
+
 
         try{
             System.out.println("Running Password Authentication now.");
+
+            //Pass expected label along too
             boolean val = PasswordAuthentication.NeuralNetwork();
             System.out.println("Neural Network returned " + val);
         }catch (Exception e){
