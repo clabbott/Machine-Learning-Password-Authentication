@@ -11,19 +11,17 @@ public class PassAuthDriver  {
 
     public static void main(String[] args){
         //To do:
-        // find a way to get data from userinput2 into clarkData.csv
-        // relay that csv to the NN
-        // delete userinput, rename userinput2
         // make it easy to export and redo on pi for mike
-        // put code on github
 
-        UserInput2 test = new UserInput2("Key Listener Tester");
+        UserInput test = new UserInput("Key Listener Tester");
 
         try{
             Thread.sleep(10000);
         }catch(Exception e){System.out.println("error");}
 
         Biometrics data = test.end();
+        System.out.println(" this it" +data.timeBetweenPressesList);
+        System.out.println(data.toString());
 
         if(!data.keyPressesStrings.toString().equals("[c, l, a, r, k]")){
             System.out.println("");
@@ -42,10 +40,7 @@ public class PassAuthDriver  {
         ArrayList<Long> placeholder = new ArrayList<>();
         placeholder.add((long) 0);
 
-        for (Long elem:data.timePressedList){
-            placeholder.add(elem);
-        }
-        for (Long elem:data.timeBetweenPressesList.subList(0,5)){
+        for (Long elem:data.timeBetweenPressesList.subList(0,4)){
             placeholder.add(elem);
         }
         System.out.println(placeholder);
