@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 
 import java.util.ArrayList;
 
-public class UserInput2 extends JFrame implements KeyListener {
+public class UserInput extends JFrame implements KeyListener {
 
     private static final long serialVersionUID = 1L;
 
@@ -32,7 +32,7 @@ public class UserInput2 extends JFrame implements KeyListener {
 
     Biometrics biometrics;
 
-    public UserInput2(String s) {
+    public UserInput(String s) {
         super(s);
         JPanel p = new JPanel();
         label = new JLabel("Type a 5-character password and press enter when you're done: ");
@@ -201,7 +201,7 @@ public class UserInput2 extends JFrame implements KeyListener {
 
     //This is returning the same elements twice
     public ArrayList<Long> getTimeBetweenPresses(ArrayList<Long> timePressedList) {
-        for (int i = 1; i < timePressedList.size(); i++) {
+        for (int i = 1; i < 5; i++) {
             timeBetweenPressesList.add(timePressedList.get(i) - timePressedList.get(i - 1));
         }
         return timeBetweenPressesList;
