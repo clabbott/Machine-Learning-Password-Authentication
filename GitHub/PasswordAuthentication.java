@@ -68,7 +68,7 @@ public class PasswordAuthentication {
 
         //Utilizes .csv files in these specific folders for training data and evaluation data
         final String filenameTrain  = new ClassPathResource("/classification/password_data_train.csv").getFile().getPath();
-        final String filenameTest  = new ClassPathResource("/classification/password_data_eval.csv").getFile().getPath();
+        final String filenameTest  = new ClassPathResource("/classification/clarkData.csv").getFile().getPath();
 
         //RecordReader is an object that stores and reads files. We use it in the trainIter constructor.
         //We use CSVRecordReader to read the data in our .csv files
@@ -161,11 +161,14 @@ public class PasswordAuthentication {
             //Gets dataset iterator class data
             INDArray features = t.getFeatures();
 
+
             //Gets dataset iterator class labels
             INDArray lables = t.getLabels();
+            System.out.println(lables);
 
             //This is what the NN would predict would happen
             INDArray predicted = model.output(features,false);
+            System.out.println(predicted);
 
             //Compares the actual labels to the predicted ones from the NN and stores them in the eval object
             eval.eval(lables, predicted);
@@ -189,4 +192,5 @@ public class PasswordAuthentication {
 
         //I removed the code that came after this that plotted it on a graph.
     }
+
 }
