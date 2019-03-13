@@ -68,7 +68,7 @@ public class PasswordAuthentication {
 
         //Utilizes .csv files in these specific folders for training data and evaluation data
         final String filenameTrain  = new ClassPathResource("/classification/password_data_train.csv").getFile().getPath();
-        final String filenameTest  = new ClassPathResource("/classification/clarkData.csv").getFile().getPath();
+        final String filenameTest  = new ClassPathResource("/classification/passData.csv").getFile().getPath();
 
         //RecordReader is an object that stores and reads files. We use it in the trainIter constructor.
         //We use CSVRecordReader to read the data in our .csv files
