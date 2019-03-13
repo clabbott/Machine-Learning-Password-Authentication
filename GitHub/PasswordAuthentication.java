@@ -58,7 +58,7 @@ public class PasswordAuthentication {
         //Iterations = number of batches needed to complete one epoch
 
         //Number of data points per input ?
-        int numInputs = 5;
+        int numInputs = 11;
 
         //Number of categories outputted
         int numOutputs = 1;
@@ -164,14 +164,16 @@ public class PasswordAuthentication {
 
             //Gets dataset iterator class labels
             INDArray lables = t.getLabels();
-            System.out.println(lables);
 
             //This is what the NN would predict would happen
             INDArray predicted = model.output(features,false);
-            System.out.println(predicted);
+            System.out.println("This is what was predicted");
+            System.out.println(predicted.toString().charAt(0));
+            return predicted.toString().charAt(0)=='1';
 
+//            boolean isClark = predicted.toString().charAt(0)=='1';
             //Compares the actual labels to the predicted ones from the NN and stores them in the eval object
-            eval.eval(lables, predicted);
+//            eval.eval(lables, predicted);
         }
 
         //Print the evaluation statistics (everything stored in the eval object)
@@ -180,6 +182,7 @@ public class PasswordAuthentication {
         //Third, **Example finished** ...
 
         System.out.println("Okay this is my code. Testing getting individual stats from eval. ");
+        System.out.println(eval.stats());
         boolean accuracy = eval.stats().charAt(107)=='1';
 
         //Will print Test is true if the password is judged to be correct
